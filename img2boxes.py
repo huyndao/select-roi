@@ -49,7 +49,7 @@ df.loc[:,'x2'] = df.loc[:,'x1'] + df.loc[:,'x2']
 df.loc[:,'y2'] = df.loc[:,'y1'] + df.loc[:,'y2']
 
 print(df)
-print('Output to: ' + os.path.join(os.path.relpath(OUTDIR), 'bbox.csv'))
+print('\nOutput to: ' + os.path.join(os.path.relpath(OUTDIR), 'bbox.csv'))
 df.to_csv(os.path.join(OUTDIR, 'bbox.csv'), index=False, header=True)
 
 try:
