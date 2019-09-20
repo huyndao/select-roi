@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-This script takes as input the directory which store images to be selected.
-This script outputs a directory named as "input_bbox" in the current working directory.
+This script takes as input a directory which stores images to be selected.
+This script outputs a directory named as "[input dir]_bbox" in the current working directory.
 A bbox.csv file is written in the output directory with the following columns:
 ['file','x1','y1','x2','y2']
-where file is the filename (with absolute path), x1, y1 is the top left coordinate and x2, y2 is the bottom right coordinate of the selected ROI.
+where 'file' is the filename (with absolute path), 'x1', 'y1' is the top left coordinate and 'x2', 'y2' is the bottom right coordinate of the selected ROI.
 
 It is suggested to run this script for one interested subject, then add a last column to the above file with the label for said subject.
 Repeat for a different subject.  Then concatenate all csv files to a main csv.
