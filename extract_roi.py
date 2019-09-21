@@ -41,7 +41,7 @@ for i in df.index:
 
 cv2.destroyAllWindows()
 try:
-    del(name,roi_img,extracted_name,extracted_extension,roi_name,img,df,i,CURDIR,OUTDIR,DATASET,ap,args)
+    del(name,roi_img,extracted_name,extracted_extension,roi_name,img,df,i,CURDIR,OUTDIR,DATASET,ap,args,x1,x2,y1,y2)
 except:
     pass
 
