@@ -52,7 +52,6 @@ for (i, image) in enumerate(images):
     im[:] = image
     df = df.append(pd.DataFrame(np.c_[im, bbox], columns=['file','x1','y1','x2','y2']), ignore_index=True)
     if cv2.waitKey(0) & 0xFF == ord('q'):
-        cv2.destroyAllWindows()
         break
 
 cv2.destroyAllWindows()
