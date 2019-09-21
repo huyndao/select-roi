@@ -36,7 +36,13 @@ for i in df.index:
     print(f'Output ROI to {os.path.join(OUTDIR, roi_name)}\n')
     cv2.imwrite(os.path.join(OUTDIR, roi_name), roi_img) 
     cv2.imshow('roi', roi_img)
-    if cv2.waitKey(0) & 0xFF == ord('q'):
+    if cv2.waitKey(100) & 0xFF == ord('q'):
         continue
 
 cv2.destroyAllWindows()
+try:
+    del(name,roi_img,extracted_name,extracted_extension,roi_name,img,df,i,CURDIR,OUTDIR,DATASET,ap,args)
+except:
+    pass
+
+gc.collect()
