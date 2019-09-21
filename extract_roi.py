@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+'''
+This script takes in a csv file of the following format ['file','x1','x2','y1','y2'] and
+outputs the extracted ROI's into the same directory that contains said csv file
+'''
+
 import numpy as np
 import pandas as pd
 import os, glob, re
