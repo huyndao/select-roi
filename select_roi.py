@@ -2,8 +2,8 @@
 """
 This script takes as input a directory which stores images to be selected.
 This script outputs a directory named as "[input dir]_bbox" in the current working directory.
-A bbox.csv file is written in the output directory with the following columns:
-['file','x1','y1','x2','y2']
+A {label}_bbox.csv file is written in the output directory with the following columns:
+['file','x1','y1','x2','y2','label']
 where 'file' is the filename (with absolute path), 'x1', 'y1' is the top left coordinate and 'x2', 'y2' is the bottom right coordinate of the selected ROI.
 
 It is suggested to run this script for one interested subject, then add a last column to the above file with the label for said subject.
@@ -60,12 +60,16 @@ cv2.destroyAllWindows()
 df.loc[:,'x2'] = df.loc[:,'x1'] + df.loc[:,'x2']
 df.loc[:,'y2'] = df.loc[:,'y1'] + df.loc[:,'y2']
 
+print('\nInput the label of the selected class')
+label = input()
+df['label'] = label
+
 print(df)
-print('\nOutput to: ' + os.path.join(os.path.relpath(OUTDIR), 'bbox.csv'))
-df.to_csv(os.path.join(OUTDIR, 'bbox.csv'), index=False, header=True)
+print('\nOutput to: ' + os.path.join(os.path.relpath(OUTDIR), f'{label.replace(" ","_")}_bbox.csv'))
+df.to_csv(os.path.join(OUTDIR, f'{label.replace(" ","_")}_bbox.csv'), index=False, header=True)
 
 try:
-    del(im,img,image,images,df,i,CURDIR,OUTDIR,DATASET,ap,args,files,regex,bbox)
+    del(im,img,image,images,df,i,CURDIR,OUTDIR,DATASET,ap,args,files,regex,bbox,label)
 except:
     pass
 
