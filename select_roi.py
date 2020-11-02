@@ -29,7 +29,7 @@ if not os.path.exists(OUTDIR):
     os.makedirs(OUTDIR)
 
 files = glob.glob(f'{DATASET}/**/*', recursive=True)
-regex = re.compile(r'.*\.(jpe?g|png)', flags=re.I)
+regex = re.compile(r'.*\.(jpe?g|png|tiff?|bmp)', flags=re.I)
 images = list(filter(regex.search, files))
 images.sort()
 
