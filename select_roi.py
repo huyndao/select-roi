@@ -34,12 +34,12 @@ images = list(filter(regex.search, files))
 images.sort()
 
 print(args)
-print(OUTDIR)
+print(OUTDIR, '\n')
 
 df = pd.DataFrame(columns=['file','x1','y1','x2','y2'])
 
-for (i, image) in enumerate(images):
-    print('\nProcessing image', os.path.relpath(image), f' ({i+1} / {len(images)})\n')
+for (i, image) in enumerate(images, start=1):
+    print('Processing image', os.path.relpath(image), f' ({i} / {len(images)})\n')
     try:
         img = cv2.imread(image)
         bbox = cv2.selectROIs('bbox', img, showCrosshair=False, fromCenter=False)
@@ -60,12 +60,12 @@ cv2.destroyAllWindows()
 df.loc[:,'x2'] = df.loc[:,'x1'] + df.loc[:,'x2']
 df.loc[:,'y2'] = df.loc[:,'y1'] + df.loc[:,'y2']
 
-print('\nInput the label of the selected class')
+print('\nInput the label of the selected class\n')
 label = input()
 df['label'] = label
 
 print(df)
-print('\nOutput to: ' + os.path.join(os.path.relpath(OUTDIR), f'{label.replace(" ","_")}_bbox.csv'))
+print('Output to: ' + os.path.join(os.path.relpath(OUTDIR), f'{label.replace(" ","_")}_bbox.csv'))
 df.to_csv(os.path.join(OUTDIR, f'{label.replace(" ","_")}_bbox.csv'), index=False, header=True)
 
 try:
