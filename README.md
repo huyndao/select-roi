@@ -5,7 +5,7 @@
 
 **`extract_roi.py`** can then be run on this `[DIR]_bbox/[CLASS]_bbox.csv` file and output images cropped to the ROI's new bounding boxes.  The images will be saved as `[DIR]_bbox/[CLASS]_filename_[X1]_[Y1]_[X2]_[Y2].extension`.
 
-The images can now be resized, sorted into class directories and used for training in neural networks. (the inclusion of the class names in the image filenames made it easier to sort)
+The images can now be resized, sorted into class directories and used for training in neural networks. (the inclusion of the class names in the image filenames made it easier to sort).  These scripts should work on JPG's, PNG's, BMP's and TIFF's since they use `opencv`.
 
 ## Install Dependencies
 ```shell
