@@ -1,11 +1,11 @@
 # **`select_roi.py`** and **`extract_roi.py`**
 
 ## Description
-**`select_roi.py`** will select multiple ROI's (Regions of Interest) per image in a directory.  After finishing selection, the script will ask for a classification name for the selected ROI.  The script will then save the selected ROI's to a csv file in directory `[DIR]_bbox/[CLASS]_bbox.csv`.
+**`select_roi.py`** will select multiple ROI's (Regions of Interest) per image in a directory.  After finishing the selection process, the script will ask for a classification name for the selected ROI.  The script will then save the selected ROI's to a csv file in directory `[DIR]_bbox/[CLASS]_bbox.csv`.
 
 **`extract_roi.py`** can then be run on this `[DIR]_bbox/[CLASS]_bbox.csv` file and output images cropped to the ROI's new bounding boxes.  The images will be saved as `[DIR]_bbox/[CLASS]_filename_[X1]_[Y1]_[X2]_[Y2].extension`.
 
-The images can now be used for training in neural networks.
+The images can now be resized, sorted into class directories and used for training in neural networks. (the inclusion of the class names in the image filenames made it easier to sort)
 
 ## Install Dependencies
 ```shell
