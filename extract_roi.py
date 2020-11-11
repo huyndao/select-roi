@@ -11,7 +11,6 @@ import pandas as pd
 import os, glob, re
 import argparse
 import cv2
-import gc
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--dataset", required=True, type=str, help="path to input csv of ROI's")
@@ -49,9 +48,3 @@ for i in df.index:
         continue
 
 cv2.destroyAllWindows()
-try:
-    del(name,roi_img,extracted_name,extracted_extension,roi_name,img,df,i,CURDIR,OUTDIR,DATASET,ap,args,x1,x2,y1,y2,label)
-except:
-    pass
-
-gc.collect()

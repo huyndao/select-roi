@@ -15,7 +15,6 @@ import pandas as pd
 import os, glob, re
 import argparse
 import cv2
-import gc
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--dataset", required=True, type=str, help="path to input directory of images")
@@ -67,10 +66,3 @@ df['label'] = label
 print(df)
 print('Output to: ' + os.path.join(os.path.relpath(OUTDIR), f'{label.replace(" ","_")}_bbox.csv'))
 df.to_csv(os.path.join(OUTDIR, f'{label.replace(" ","_")}_bbox.csv'), index=False, header=True)
-
-try:
-    del(im,img,image,images,df,i,CURDIR,OUTDIR,DATASET,ap,args,files,regex,bbox,label)
-except:
-    pass
-
-gc.collect()
